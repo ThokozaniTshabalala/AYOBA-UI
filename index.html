@@ -45,7 +45,7 @@
 
                 <!--ADD YOUR CHAT DIVS AND DESIGN HERE, MESSAGE API AND ALL OF THAT HERE-->
                 
-                <div class="chat-person" >
+                <div class="chat-person" onclick="openChat('Nathier', 'images/AYOBA PROFILES.png')">
                     <div class="profile">
                         <img src="images/AYOBA PROFILES.png" alt="" class="customer-profile-pic">
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="chat-person">
+                <div class="chat-person" onclick="openChat('Yada', 'images/AYOBA PROFILES_2.png')">
                     <div class="profile">
                         <img src="images/AYOBA PROFILES_2.png" alt="" class="customer-profile-pic">
                     </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <div class="chat-person">
+                <div class="chat-person" onclick="openChat('Samkelo', 'images/AYOBA PROFILES_3.png')">
                     <div class="profile">
                         <img src="images/AYOBA PROFILES_3.png" alt="" class="customer-profile-pic">
                     </div>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="chat-person">
+                <div class="chat-person" onclick="openChat('Xabiso', 'images/AYOBA PROFILES_4.png')">
                     <div class="profile">
                         <img src="images/AYOBA PROFILES_4.png" alt="" class="customer-profile-pic">
                     </div>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="chat-person">
+                <div class="chat-person" onclick="openChat('Xavier', 'images/AYOBA PROFILES_5.png')" >
                     <div class="profile">
                         <img src="images/AYOBA PROFILES_5.png" alt="" class="customer-profile-pic">
                     </div>
@@ -199,25 +199,25 @@
 </body>
 
 <script>
-    var tablinks= document.getElementsByClassName("tab-links");
-    var tabcontents= document.getElementsByClassName("tab-contents");
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
 
-    function opentab(tabname){
-        for(tablink of tablinks){
+    function opentab(tabname) {
+        for (tablink of tablinks) {
             tablink.classList.remove("active-link");
         }
 
-        for (tabcontent of tabcontents){
+        for (tabcontent of tabcontents) {
             tabcontent.classList.remove("active-tab");
         }
 
         event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab")
+        document.getElementById(tabname).classList.add("active-tab");
 
         // Move the indicator
         var activeLink = document.querySelector(".tab-links.active-link");
         var indicator = document.querySelector(".indicator");
-    
+
         // Calculate the position of the active link
         var leftPosition = activeLink.offsetLeft;
         var width = activeLink.offsetWidth;
@@ -227,11 +227,19 @@
 
         // Center the indicator
         indicator.style.left = `${leftPosition + width / 2 - indicator.offsetWidth / 2}px`;
-        indicator.style.width = `${width*2}px`;
+        indicator.style.width = `${width * 2}px`;
+    }
 
-    document.getElementById('floatingButton').addEventListener('click', function() {
-    alert('Floating button clicked!');
-});
+    document.getElementById('floatingButton').addEventListener('click', function () {
+        alert('Floating button clicked!');
+    });
+
+    function openChat(name, profileImageSrc) {
+        // Store the name and profile image src in localStorage
+        localStorage.setItem('chatName', name);
+        localStorage.setItem('profileImageSrc', profileImageSrc);
+        // Redirect to directChat.html
+        window.location.href = 'directChat.html';
     }
     
 </script>

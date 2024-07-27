@@ -17,10 +17,10 @@
         <div class="navbar message-top-section">
             <div class="person">
                 <div class="image profile">
-                    <img src="images/AYOBA PROFILES.png" alt="profile-piture-of a person">
+                    <img id="profileImage" src="images/AYOBA PROFILES.png" alt="profile-picture-of a person">
                 </div>
                 
-                 <div class="name"><h3>Nathier</h3></div>
+                <div class="name"><h3 id="chatName">Nathier</h3></div>
             </div>
             <div class="icons">
                 <div class="icon-wrapper">
@@ -51,4 +51,18 @@
     </div>
     
 </body>
+
+<script>
+    // Retrieve the stored name from localStorage
+    var name = localStorage.getItem('chatName');
+    var profileImageSrc = localStorage.getItem('profileImageSrc');
+    if (name) {
+        // Set the text of the h3 element with id 'chatName'
+        document.getElementById('chatName').textContent = name;
+    }
+    if (profileImageSrc) {
+        // Set the src attribute of the img element with id 'profileImage'
+        document.getElementById('profileImage').src = profileImageSrc;
+    }
+</script>
 </html>

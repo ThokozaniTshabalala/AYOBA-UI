@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYOBA BUSINESS CHAT</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     
 </head>
 <body>
@@ -31,10 +32,7 @@
                 </div>
 
                 <div class=" tab-links Management" onClick="opentab('education')">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0162A0" class="size-6 imp-svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
-                    </svg>
-                      
+                    <img src="images/people-group-solid.svg" alt="" class="svg-image secondary-bleu">  
                 </div>
 
                 <div class="indicator"></div>
@@ -47,12 +45,12 @@
 
                 <!--ADD YOUR CHAT DIVS AND DESIGN HERE, MESSAGE API AND ALL OF THAT HERE-->
                 
-                <div class="chat-person">
+                <div class="chat-person" >
                     <div class="profile">
                         <img src="images/AYOBA PROFILES.png" alt="" class="customer-profile-pic">
                     </div>
                     <div class="message-preview">
-                        <div class="primary-text">Nathier</div>
+                        <div class="primary-text" id="NameOfPerson">Nathier</div>
                         <div class="secondary-text">I want to order AF1</div>
                     </div>
                     <div class="time-stamp">
@@ -66,7 +64,7 @@
                         <img src="images/AYOBA PROFILES_2.png" alt="" class="customer-profile-pic">
                     </div>
                     <div class="message-preview">
-                        <div class="primary-text">Yada</div>
+                        <div class="primary-text" id="NameOfPerson">Yada</div>
                         <div class="secondary-text">Do you still have Adidas Sambas</div>
                     </div>
                     <div class="time-stamp">
@@ -80,7 +78,7 @@
                         <img src="images/AYOBA PROFILES_3.png" alt="" class="customer-profile-pic">
                     </div>
                     <div class="message-preview">
-                        <div class="primary-text">Samkelo</div>
+                        <div class="primary-text" id="NameOfPerson">Samkelo</div>
                         <div class="secondary-text">When is my order arriving</div>
                     </div>
                     <div class="time-stamp">
@@ -95,7 +93,7 @@
                     </div>
                     <div class="message-preview">
                         <div class="primary-text">Xabiso</div>
-                        <div class="secondary-text">These are fire bruh</div>
+                        <div class="secondary-text" id="NameOfPerson">These are fire bruh</div>
                     </div>
                     <div class="time-stamp">
                         <div class="empty-box"></div>
@@ -108,7 +106,7 @@
                         <img src="images/AYOBA PROFILES_5.png" alt="" class="customer-profile-pic">
                     </div>
                     <div class="message-preview">
-                        <div class="primary-text">Xavier</div>
+                        <div class="primary-text" id="NameOfPerson">Xavier</div>
                         <div class="secondary-text">Hello</div>
                     </div>
                     <div class="time-stamp">
@@ -120,7 +118,7 @@
     
             <div class="tab-contents" id="projects">
                 <div class="advert-section">
-                    <h3 class="primary-text bleu">Your Ads</h3>
+                    <h3 class="primary-text bleu ad-topic">Your Ads</h3>
                     <div class="showcase ads">
                         <div class="ad-image">
                             <img src="images/SNEAKER_AD_03.png" alt="ad-01" >
@@ -149,7 +147,7 @@
                 </div>
 
                 <div class="catalogue-section">
-                    <h3 class="primary-text bleu">Catalogue</h3>
+                    <h3 class="primary-text bleu ad-topic">Catalogue</h3>
                     <div class=" showcase products">
                         <div class="ad-image">
                             <img src="images/91e3aJPNmsL._AC_UY1000_.jpg" alt="product-01">
@@ -183,10 +181,7 @@
             </div> <!---marks end of ads section-->
     
                 <div class="tab-contents" id="education">
-                    <ul>
-                        <li>customer 1</li>
-                        <li>customer 2</li>
-                    </ul>
+                   
                 </div>
             
                

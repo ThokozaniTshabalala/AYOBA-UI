@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYOBA BUSINESS CHAT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <div class="navbar">
+            <div class="top-section">
+                <h3>Business Chat</h3>
+                <img src="images/more-vertical-outline.svg" alt="three-dots icon" class="svg-image" >
+            </div>
+
+            
+            <div class="tab-titles bottom-section">
+                <!--DOM MANIPULATION-->
+                <div class="tab-links active-link chat" onClick="opentab('chat')">
+                    <img src="images/message-circle-outline.svg" alt="chat-icon" class="svg-image">
+                </div>
+
+                <div class="tab-links Analytics"  onClick="opentab('projects')">
+                    <!---<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0162A0" class="size-6 imp-svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                      </svg>-->
+                    <img src="images/bar_graph_icon.png" alt="bar-graph-icon" class="imp-svg">
+                      
+                </div>
+
+                <div class=" tab-links Management" onClick="opentab('education')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0162A0" class="size-6 imp-svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
+                    </svg>
+                      
+                </div>
+
+                <div class="indicator"></div>
+          
+            </div>
+        </div>
+
+        <div class="pages">
+            <div class="tab-contents active-tab" id="chat">
+
+                <!--ADD YOUR CHAT DIVS AND DESIGN HERE, MESSAGE API AND ALL OF THAT HERE-->
+                
+                <div class="chat-person">
+                    <div class="profile">
+                        <img src="images/AYOBA PROFILES.png" alt="" class="customer-profile-pic">
+                    </div>
+                    <div class="message-preview">
+                        <div class="primary-text">Nathier</div>
+                        <div class="secondary-text">I want to order AF1</div>
+                    </div>
+                    <div class="time-stamp">
+                        <div class="empty-box"></div>
+                        <div class="time">17:00</div>
+                    </div>
+                </div>
+
+                <div class="chat-person">
+                    <div class="profile">
+                        <img src="images/AYOBA PROFILES_2.png" alt="" class="customer-profile-pic">
+                    </div>
+                    <div class="message-preview">
+                        <div class="primary-text">Yada</div>
+                        <div class="secondary-text">Do you still have Adidas Sambas</div>
+                    </div>
+                    <div class="time-stamp">
+                        <div class="empty-box"></div>
+                        <div class="time">16:45</div>
+                    </div>
+                </div>
+
+                <div class="chat-person">
+                    <div class="profile">
+                        <img src="images/AYOBA PROFILES_3.png" alt="" class="customer-profile-pic">
+                    </div>
+                    <div class="message-preview">
+                        <div class="primary-text">Samkelo</div>
+                        <div class="secondary-text">When is my order arriving</div>
+                    </div>
+                    <div class="time-stamp">
+                        <div class="empty-box"></div>
+                        <div class="time">16:43</div>
+                    </div>
+                </div>
+
+                <div class="chat-person">
+                    <div class="profile">
+                        <img src="images/AYOBA PROFILES_4.png" alt="" class="customer-profile-pic">
+                    </div>
+                    <div class="message-preview">
+                        <div class="primary-text">Xabiso</div>
+                        <div class="secondary-text">These are fire bruh</div>
+                    </div>
+                    <div class="time-stamp">
+                        <div class="empty-box"></div>
+                        <div class="time">16:02</div>
+                    </div>
+                </div>
+
+                <div class="chat-person">
+                    <div class="profile">
+                        <img src="images/AYOBA PROFILES_5.png" alt="" class="customer-profile-pic">
+                    </div>
+                    <div class="message-preview">
+                        <div class="primary-text">Xavier</div>
+                        <div class="secondary-text">Hello</div>
+                    </div>
+                    <div class="time-stamp">
+                        <div class="empty-box"></div>
+                        <div class="time">15:39</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="tab-contents" id="projects">
+            <div>
+                <img src="" alt="ad-01">
+            </div>
+
+            <div>
+                <img src="" alt="ad-02">
+            </div>
+
+            <div>
+                <img src="" alt="ad-03">
+            </div>
+
+            <div>
+                <img src="" alt="ad-04">
+            </div>
+
+            <div>
+                <img src="" alt="ad-05">
+            </div>
+
+            <div>
+                <img src="" alt="ad-06">
+            </div> 
+
+            
+            </div> <!---marks end of ads section-->
+    
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li>customer 1</li>
+                        <li>customer 2</li>
+                    </ul>
+                    </div>
+        </div>
+
+        
+
+
+
+    </div>
+    
+</body>
+
+<script>
+    var tablinks= document.getElementsByClassName("tab-links");
+    var tabcontents= document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+
+        for (tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab")
+
+        // Move the indicator
+        var activeLink = document.querySelector(".tab-links.active-link");
+        var indicator = document.querySelector(".indicator");
+    
+        // Calculate the position of the active link
+        var leftPosition = activeLink.offsetLeft;
+        var width = activeLink.offsetWidth;
+
+        indicator.style.left = `${leftPosition}px`;
+        indicator.style.width = `${width}px`;
+
+        // Center the indicator
+        indicator.style.left = `${leftPosition + width / 2 - indicator.offsetWidth / 2}px`;
+        indicator.style.width = `${width*2}px`;
+    }
+    
+</script>
+</html>

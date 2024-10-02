@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Example</title>
+    <style>
+        #responseBox {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername">
+    </div>
+    <div>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword">
+    </div>
+    <button id="loginButton">Login</button>
+    <div id="loginFeedback"></div>
+    <pre id="responseBox"></pre>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginButton = document.getElementById('loginButton');
+            const loginFeedback = document.getElementById('loginFeedback');
+            const responseBox = document.getElementById('responseBox');
+
+            loginButton.addEventListener('click', () => {
+                const loginUsername = document.getElementById('loginUsername').value;
+                const loginPassword = document.getElementById('loginPassword').value;
+
+                const loginPayload = {
+                    username: loginUsername,
+                    password: loginPassword
+                };
+
+                const loginUrl = 'https://api.ayoba.me/v2/login';
+
+                loginApiRequest(loginUrl, loginPayload)
+                    .then(responseData => {
+                        loginFeedback.textContent = 'Login successful!';
+                        loginFeedback.style.color = 'green';
+                        responseBox.textContent = JSON.stringify(responseData, null, 2);
+                        console.log('Login response data:', responseData);
+                    })
+                    .catch(error => {
+                        loginFeedback.textContent = 'Login failed. Please check your credentials.';
+                        loginFeedback.style.color = 'red';
+                        responseBox.textContent = error.message;
+                        console.error('Login error:', error);
+                    });
+            });
+        });
+
+        async function loginApiRequest(url, data) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                const responseData = await response.json();
+                console.log('Login response data:', responseData);  // Log response data for debugging
+                // Extract the access_token
+                const accessToken = responseData.access_token;
+
+                console.log('Access Token:', accessToken);
+                return accessToken;
+            } catch (error) {
+                console.error('Error performing login request:', error);
+                throw error;
+            }
+        }
+
+        async function sendApiRequest(url, accessToken, data) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': "Bearer "+accessToken,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                const responseData = await response.json();
+                return responseData;
+            } catch (error) {
+                console.error('Error performing API request:', error);
+                throw error;
+            }
+        }
+    </script>
+</body>
+</html>

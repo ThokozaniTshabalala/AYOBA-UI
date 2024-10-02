@@ -1,168 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
 body {
-    height: 100%;
-    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(135deg, #198092, #ffc371);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
-    border: black;
-    font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    margin: 0;
 }
 
 .mobile-container {
-    width: 375px; /* typical mobile width */
-    height: 667px; /* typical mobile height */
-    border: 1px solid #000; /* Optional: to see the boundary */
-    overflow: hidden;
-    background-color: #f0f0f0; /* Optional: background color for the mobile container */
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
-.navbar{
-    background-color: #E6EDF2;
-    margin: 0;
-    padding-bottom: 1px;
-}
-
-.top-section{
+.navbar {
+    padding: 20px;
+    background-color: #187dac;
+    color: white;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
-    padding-left: 1.75rem;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
 }
 
-.top-section>h3{
-    margin: 0;
-    color: #0162A0;
+.profile img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
 
-.bottom-section{
+.conversation {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f9f9f9;
+}
+
+.chat-input-container {
     display: flex;
-    justify-content: space-between;
-    margin-top: 1.75rem;
-    margin-left: 1.75rem;
-    margin-right: 1.75rem;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    align-items: center;
+    background: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.chat-input-container button {
+    background: none;
+    border: none;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #5fddfd;
+}
+
+.chat-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.chat-input-container .send-button {
+    background-color: #bce210;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.message-bubble {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 70%;
+    display: inline-block;
     position: relative;
-    margin-bottom: 12px;
-    /**the margin bottom here dictates where the light bleu margin of the navbar ends
-    >>I have made the made teh margin to end where the yellow indicator starts
-    >>Here is the formula for how you calculate margin bottom
-    >> margin-bottom=fontSIZE of root(check on chrome inspectot tool) X 0.75*/
-}
-.svg-image {
-    height: 20px;
-    width: auto;
-    filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(95%) contrast(90%);
 }
 
-.imp-svg {
-    height: 20px;
-    width: auto;
+.message-bubble.sent {
+    background-color: #007bff; /* Blue color for sent messages */
+    color: white;
+    align-self: flex-end;
 }
 
-.tab-contents{
-    display: none;
+.message-bubble.received {
+    background-color: #ffeb3b; /* Yolk yellow color for received messages */
+    color: black;
+    align-self: flex-start;
 }
 
-
-.tab-contents.active-tab{
-    display: block;
-}
-
-/******************************************************indicator div******************************************/
-.indicator {
+.timestamp {
+    font-size: 12px;
+    color: gray;
     position: absolute;
-    bottom: -0.75rem;
-    left: 0;
-    height: 5px; /* Adjust height as needed */
-    width: 50px; /* Adjust width to match tab size or as needed */
-    background-color: #ffbb33; /* Yellow color */
-    border-radius: 2px 2px 0 0; /* Rounded corners only at the top */
-    transform: translateX(-25%); /* Center the indicator */
-    transition: left 0.3s ease; /* Smooth transition */
-
+    bottom: -20px;
+    right: 10px;
 }
 
-/***********************************pages******************************************************/
-.pages{
-   margin-top: 1rem; 
-   background-color: #f0f0f0;
-   padding: 0.55rem;
+.date-separator {
+    text-align: center;
+    color: gray;
+    margin: 10px 0;
 }
-
-.chat-person{
-    background-color: #f0f0f0;
-    width: 100%;
-    height: 4rem;
-    border-radius: 8px;
-    display: flex;
-}
-
-.profile{
-    width: 17%;
-    /*background-color: red;*/
-    border-radius: 8px;
-}
-.message-preview{
-    width:70%;
-    /*background-color: greenyellow;*/
-    border-radius: 8px;
-}
-.time-stamp{
-    width:13%;
-    /*background-color: rgb(44, 202, 150);*/
-    border-radius: 8px;
-}
-
-.customer-profile-pic{
-    width: 100%;
-}
-
-.message-preview{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-evenly;
-    font-family: 'Roboto', sans-serif;
-    padding-left: 1rem;
-    padding-right: 0.95rem;
-    padding-bottom: 0.25rem;
-}
-
-.primary-text{
-    font-weight: 600;
-    font-size: 16px;
-}
-.secondary-text{
-    font-weight: 400;
-    font-size: 15px;
-}
-
-.time-stamp{
-    display: flex;
-    flex-direction: column;
-    padding-right: 6px;
-}
-
-.empty-box{
-    height: 50%;
-}
-.time{
-    height: 50%;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    color: #B29C9C;
-}
-
-
-
-
-
-
-
-

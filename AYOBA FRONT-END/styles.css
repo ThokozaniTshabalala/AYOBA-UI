@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(135deg, #198092, #ffc371);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.mobile-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    padding: 20px;
+    background-color: #187dac;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.conversation {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f9f9f9;
+}
+
+.chat-input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    align-items: center;
+    background: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.chat-input-container button {
+    background: none;
+    border: none;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #5fddfd;
+}
+
+.chat-input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.chat-input-container .send-button {
+    background-color: #bce210;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.message-bubble {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 70%;
+    display: inline-block;
+    position: relative;
+}
+
+.message-bubble.sent {
+    background-color: #007bff; /* Blue color for sent messages */
+    color: white;
+    align-self: flex-end;
+}
+
+.message-bubble.received {
+    background-color: #ffeb3b; /* Yolk yellow color for received messages */
+    color: black;
+    align-self: flex-start;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+}
+
+.date-separator {
+    text-align: center;
+    color: gray;
+    margin: 10px 0;
+}

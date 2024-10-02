@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayoba API Integration</title>
+</head>
+<body>
+    <!-- Other HTML elements here -->
+    <div>
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername">
+    </div>
+    <div>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword">
+    </div>
+    <button id="loginButton">Login</button>
+    <div id="loginFeedback"></div>
+
+    <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber">
+    </div>
+    <div>
+        <label for="messageText">Message:</label>
+        <input type="text" id="messageText">
+    </div>
+    <button id="sendMessageButton">Send Message</button>
+    <div id="messageFeedback"></div>
+
+    <!-- Element to display the auth token -->
+    <div id="authTokenDisplay"></div>
+
+    <!-- Script section -->
+    <script>
+        let authToken = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginButton = document.getElementById('loginButton');
+            const sendMessageButton = document.getElementById('sendMessageButton');
+            const loginFeedback = document.getElementById('loginFeedback');
+            const messageFeedback = document.getElementById('messageFeedback');
+            const authTokenDisplay = document.getElementById('authTokenDisplay'); // Get the element
+
+            loginButton.addEventListener('click', () => {
+                const loginUsername = document.getElementById('loginUsername').value;
+                const loginPassword = document.getElementById('loginPassword').value;
+
+                const loginPayload = {
+                    username: loginUsername,
+                    password: loginPassword
+                };
+
+                const loginUrl = 'https://api.ayoba.me/v2/login';
+
+                loginApiRequest(loginUrl, loginPayload)
+                    .then(responseData => {
+                        // Extract the access_token
+                        const accessToken = responseData.access_token;
+                        console.log('Access Token:', accessToken);
+                        authToken = accessToken;
+                        loginFeedback.textContent = 'Logged in successfully!';
+                        loginFeedback.style.color = 'green';
+                        authTokenDisplay.textContent = `Auth Token: ${authToken}`; // Display the token
+                    })
+                    .catch(error => {
+                        loginFeedback.textContent = 'Login failed. Please check your credentials.';
+                        loginFeedback.style.color = 'red';
+                        console.error('Login error:', error);
+                    });
+            });
+
+            sendMessageButton.addEventListener('click', () => {
+                const phoneNumber = document.getElementById('phoneNumber').value;
+                const messageText = document.getElementById('messageText').value;
+
+                const payload = {
+                    msisdns: [phoneNumber],
+                    message: {
+                        type: "text",
+                        text: messageText
+                    }
+                };
+
+                const apiUrl = 'https://api.ayoba.me/v1/business/message';
+
+                sendApiRequest(apiUrl, authToken, payload)
+                    .then(responseData => {
+                        messageFeedback.textContent = 'Message sent successfully!';
+                        messageFeedback.style.color = 'green';
+                        console.log('Message sent successfully:', responseData);
+                    })
+                    .catch(error => {
+                        messageFeedback.textContent = 'Error sending message. Please try again.';
+                        messageFeedback.style.color = 'red';
+                        console.error('Error sending message:', error);
+                    });
+            });
+        });
+
+        async function loginApiRequest(url, data) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                const responseData = await response.json();
+                console.log('Login response data:', responseData);  // Log response data for debugging
+                return responseData; // Returning the whole response data
+            } catch (error) {
+                console.error('Error performing login request:', error);
+                throw error;
+            }
+        }
+
+        async function sendApiRequest(url, token, data) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                const responseData = await response.json();
+                return responseData;
+            } catch (error) {
+                console.error('Error performing API request:', error);
+                throw error;
+            }
+        }
+    </script>
+</body>
+</html>
